@@ -18,7 +18,6 @@ export default function Home(props) {
        <h1>
          Home
        </h1>
-       <main>{children || <Outlet />}</main>
     </>
    )
 }

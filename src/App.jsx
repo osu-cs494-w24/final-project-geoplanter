@@ -1,23 +1,32 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-   Link,
-   NavLink,
-   Outlet,
-   useParams,
-   useSearchParams,
-   useRouteError,
-   parsePath
-} from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
+import SearchBar from './components/SearchBar'
+
+/*
+   Displays all of the constant website components
+*/
 export default function App(props) {
    const { children } = props
+
+   // The header/navbar, searchbar, and footer are constant
    return (
       <>
-         <h1>
-            This is the App!
-         </h1>
+         <header>
+            Header
+         </header>
+         <nav>
+            <ul>
+               <li><NavLink to="/">Home</NavLink></li>
+               <li><NavLink to="/">LOGO</NavLink></li>
+               <li><NavLink to="/map">Map</NavLink></li>
+            </ul>
+         </nav>
+         <SearchBar />
          <main>{children || <Outlet />}</main>
+         <footer>
+            Footer
+         </footer>
       </>
    )
 }

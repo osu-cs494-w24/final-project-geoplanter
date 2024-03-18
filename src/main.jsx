@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Global, css } from '@emotion/react'
 
-import App                          from './App.jsx'
-import Home                         from './pages/Home.jsx'
-import World                        from './pages/World.jsx'
-import { SelectLocation, Location } from './pages/Location.jsx'
-import { SelectSeason, Season }     from './pages/Season.jsx'
-import { SelectPlant, Plant }       from './pages/Plant.jsx'
-import ErrorPage                    from './pages/ErrorPage.jsx'
+import App                    from './App'
+import Home                   from './pages/Home'
+import Map                    from './pages/Map'
+import { Location }           from './pages/Location'
+import { SelectPlant, Plant } from './pages/Plant'
+import ErrorPage              from './pages/ErrorPage'
 
 const globalStyles = css`
   * {
@@ -26,16 +25,11 @@ const router = createBrowserRouter([
       errorElement: <App> <ErrorPage /> </App>,
       children: [
          { index: true, element: <Home /> },
-         { path: "all", element: <World />, children: [
-            { index: true, element: <SelectLocation /> },
-            { path: ":location", element: <Location />, children: [
-               { index: true, element: <SelectSeason /> },
-               { path: ":season", element: <Season />, children: [
-                  { index: true, element: <SelectPlant /> },
-                  { path: ":plant", element: <Plant />  }
-               ]}
-            ]}
-         ]}
+         { path: ":location", element: <Location />, children: [
+            { index: true, element: <SelectPlant /> },
+            { path: ":plant", element: <Plant />  }
+         ]},
+         { path: "map", element: <Map /> },
       ]
    }
 ])

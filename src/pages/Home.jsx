@@ -1,23 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useParams,
-  useSearchParams,
-  useRouteError,
-  parsePath
-} from 'react-router-dom'
+/*
+  Displays if Map is not and nothing has been searched yet
+*/
+export default function Home() {
 
-// Displays if World.jsx is not
-export default function Home(props) {
-  const { children } = props
-   return (
+  // The Home Screen
+  return (
     <>
-       <h1>
-         Home
-       </h1>
+      <h1>Home</h1>
     </>
-   )
+  )
 }

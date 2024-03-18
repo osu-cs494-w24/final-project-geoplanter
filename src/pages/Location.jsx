@@ -1,33 +1,90 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useParams,
-  useSearchParams,
-  useRouteError,
-  parsePath
-} from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
 
-// Displays when a location is selected - Outlet: See Season.jsx
+import { fetchZipcode, fetchHardiness, fetchPlants } from '../components/Fetchers'
+import { noPremium } from '../components/Filters'
+
+/*
+  Display when a location has been searched
+*/
 export function Location(props) {
-  const { children } = props
-   return (
-    <>
-       <h1>
-         Location
-       </h1>
-         <main>{children || <Outlet />}</main>
-      </>
-   )
-}
+  const params = useParams()
+  const [zipcode, setZipcode] = useState(null)
+  const [hardiness, setHardiness] = useState(null)
+  const [plants, setPlants] = useState(null)
+  const [error, setError] = useState(null)
 
-// Displays when no location is selected
-export function SelectLocation() {
+  const location = params.location.split(',')
+  const cityName = location[0]
+  const stateName = location[1]
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await fetchZipcode(cityName, stateName)
+        setZipcode(result.results)
+      } catch (error) {
+        setError('Error fetching zipcode data')
+        console.error('Error fetching zipcode data:', error)
+      }
+    }
+
+    fetchData()
+  }, [cityName, stateName])
+
+  useEffect(() => {
+    const fetchHardinessData = async () => {
+      if (zipcode) {
+        try {
+          const result = await fetchHardiness(zipcode)
+          setHardiness(result.zone.replace(/\D/g, ''))
+        } catch (error) {
+          setError('Error fetching hardiness data')
+          console.error('Error fetching hardiness data:', error)
+        }
+      }
+    }
+
+    fetchHardinessData()
+  }, [zipcode])
+
+  useEffect(() => {
+    const fetchPlantsData = async () => {
+      if (hardiness) {
+        try {
+          const result = await fetchPlants(hardiness)
+          setPlants(noPremium(result.data))
+        } catch (error) {
+          setError('Error fetching plants data')
+          console.error('Error fetching plants data:', error)
+        }
+      }
+    }
+
+    fetchPlantsData()
+  }, [hardiness])
+
+  if (error) {
+    return <div>{error}</div>
+  }
+
+  // This is the side bar for local edible plants
   return (
-      <h1>
-        LocationSelect
-      </h1>
+    <>
+      <h1>Location</h1>
+      {zipcode && hardiness && plants && (
+        <ul>
+          {console.log(plants)}
+          {plants.map(plant => (
+            <li key={plant.id}>
+              <NavLink to={"/" + cityName + "," + stateName + "/" + plant.common_name.replace(/\s/g, '')+plant.id}>
+                <h1>{plant.common_name}</h1>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
+      <main>{props.children || <Outlet />}</main>
+    </>
   )
 }

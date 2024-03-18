@@ -1,7 +1,12 @@
+/*
+  Display when an error occurs
+*/
 export default function ErrorPage() {
-   return (
-       <h1>
-         ErrorPage
-       </h1>
-   )
+
+  // Error page
+  return (
+    <h1>
+      ErrorPage
+    </h1>
+  )
 }

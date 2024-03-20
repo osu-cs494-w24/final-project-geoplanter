@@ -1,4 +1,3 @@
-/* style.css */
 body {
    font-family: 'Georgia', serif;
    background-color: #f7f3e8;
@@ -6,25 +5,32 @@ body {
    display: flex;
    flex-direction: column;
    min-height: 100vh;
- }
- /* Reset some styles */
+}
+
+/* Reset some styles */
 body, html {
    margin: 0;
    padding: 0;
    height: 100%;
- }
+}
  
  /* Set the main container */
- .main-container {
+.main-container {
    min-height: 100vh;
    display: flex;
    flex-direction: column;
- }
+}
 
- main {
+main {
    flex-grow: 1;
    margin: 20px;
- }
+}
+
+/* Header styles */
+header h1 {
+   font-size: 2rem;
+   margin: 0;
+}
 
 /* Footer styles */
 footer {
@@ -33,37 +39,39 @@ footer {
   padding: 20px;
   text-align: center;
   flex-shrink: 0;
- }
- 
- nav ul {
+}
+
+/* Navbar styles */
+nav ul {
    list-style-type: none;
    margin: 0;
    padding: 0;
    overflow: hidden;
    background-color: #8bc34a;
- }
+}
  
- nav li {
+nav li {
    float: left;
- }
+}
  
- nav li a {
+nav li a {
    display: block;
    color: #fff;
    text-align: center;
    padding: 14px 16px;
    text-decoration: none;
- }
+}
  
- nav li a:hover {
+nav li a:hover {
    background-color: #7cb342;
- }
+}
  
- main {
-   margin: 20px;
- }
- 
- /* Sidebar styles */
+nav ul li img {
+   height: 40px;
+   vertical-align: middle;
+}
+
+/* Sidebar styles */
 .sidebar {
    width: 20%;
    background-color: #e8f5e9;
@@ -72,158 +80,157 @@ footer {
    overflow: auto;
    border-right: 1px solid #c8e6c9;
    float: left;
- }
+}
  
- 
- .sidebar ul {
+.sidebar ul {
    list-style-type: none;
    padding: 0;
- }
+}
  
- .sidebar li {
+.sidebar li {
    margin-bottom: 10px;
- }
+}
  
- .sidebar a {
+.sidebar a {
    display: block;
    color: #4d4d4d;
    text-decoration: none;
    padding: 8px 16px;
- }
+}
  
- .sidebar a:hover {
+.sidebar a:hover {
    background-color: #c8e6c9;
- }
- /* Content area styles */
- .content {
+}
+/* Content area styles */
+.content {
    margin-left: 25%;
    padding: 20px;
    padding-bottom: 80px; /* Adjust this value as needed */
- }
- 
- header h1 {
-   font-size: 2rem;
-   margin: 0;
- }
- 
- nav ul li img {
-   height: 40px;
-   vertical-align: middle;
- }
+}
 
- .home-container {
+/* Home page styles */
+.home-container {
    text-align: center;
    padding: 40px;
- }
+}
  
- .home-container h1 {
+.home-container h1 {
    font-size: 2.5rem;
    margin-bottom: 1rem;
- }
+}
  
- .home-container p {
+.home-container p {
    font-size: 1.2rem;
    color: #6b8e23;
- }
+}
 
- .map-container {
+/* Map page styles */
+.map-container {
    text-align: center;
    padding: 40px;
- }
+}
  
- .map-container h1 {
+.map-container h1 {
    font-size: 2rem;
    margin-bottom: 1rem;
- }
+}
  
- .map-container img {
+.map-container img {
    max-width: 100%;
    height: auto;
- }
+}
 
- .error-container {
+/* Error page styles */
+.error-container {
    text-align: center;
    padding: 40px;
- }
+}
  
- .error-container h1 {
+.error-container h1 {
    font-size: 2.5rem;
    margin-bottom: 1rem;
    color: #c0392b;
- }
+}
  
- .error-container p {
+.error-container p {
    font-size: 1.2rem;
    color: #6b8e23;
- }
+}
 
- .search-container {
+/* Search bar styles */
+.search-container {
    background-color: #f2f2f2;
    padding: 20px;
    text-align: center;
- }
+}
  
- .search-container input {
+.search-container input {
    padding: 8px;
    margin-right: 10px;
    border: 1px solid #ddd;
    border-radius: 4px;
- }
+}
  
- .search-container button {
+.search-container button {
    padding: 8px 16px;
    background-color: #6b8e23;
    color: #fff;
    border: none;
    border-radius: 4px;
    cursor: pointer;
- }
+}
  
- .search-container button:hover {
+.search-container button:hover {
    background-color: #8bc34a;
- }
+}
 
- .plant-container {
+/* Plant styles */
+.plant-container {
    background-color: #fff;
    padding: 20px;
    border-radius: 5px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    max-width: 800px;
    margin: 0 auto;
- }
+}
  
- .plant-container h1 {
+.plant-container h1 {
    font-size: 2.5rem;
    color: #6b8e23;
    margin-bottom: 0.5rem;
- }
+}
  
- .plant-container h2 {
+.plant-container h2 {
    font-size: 1.8rem;
    color: #4d4d4d;
    margin-bottom: 1rem;
- }
+}
  
- .plant-container img {
+.plant-container img {
    max-width: 100%;
    height: auto;
    margin-bottom: 1rem;
- }
+}
  
- .plant-container p {
+.plant-container p {
    font-size: 1.1rem;
    line-height: 1.6;
    margin-bottom: 1.5rem;
- }
+}
 
- 
 .plant-details h3 {
    font-size: 1.5rem;
    color: #6b8e23;
    margin-bottom: 0.5rem;
- }
+}
  
- .plant-details p {
+.plant-details p {
    font-size: 1.1rem;
    margin-bottom: 0.5rem;
- }
+}
+
+.plant-details p pre {
+   font-family: 'Georgia', serif;
+   font-size: 1.1rem;
+   margin: 0.1rem;
+}

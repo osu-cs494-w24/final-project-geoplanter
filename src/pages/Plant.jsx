@@ -40,8 +40,13 @@ export function Plant() {
       <div className="plant-details">
         <h3>Details</h3>
         <p><strong>Family: </strong>{plant.family}</p>
-        <p><strong>Edible Parts: </strong>{plant.edible_fruit && (<>fruit </>)}{plant.edible_leaf && (<>leaves </>)}</p>
+        <p><strong>Edible Parts: </strong>{plant.edible_fruit && (<>Fruit </>)}{plant.edible_leaf && (<>Leaves </>)}</p>
         <p><strong>Harvest Season: </strong>{plant.harvest_season}</p>
+        <p><strong>Other: </strong>
+          {plant.medicinal && (<pre>    Medicinal </pre>)}
+          {plant.thorny && (<pre>    Thorny </pre>)}
+          {plant.poisonous_to_pets == 1 && (<pre>    Poisonous to Pets </pre>)}
+        </p>
       </div>
     </div>
     )
@@ -56,7 +61,7 @@ export function SelectPlant() {
   // No plant selected placeholder
   return (
     <>
-    <h1>PlantSelect</h1>
+    <h1>Select a Plant</h1>
     </>
   )
 }

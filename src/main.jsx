@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Global, css } from '@emotion/react'
 
 import App                    from './App'
 import Home                   from './pages/Home'
@@ -11,14 +10,6 @@ import { SelectPlant, Plant } from './pages/Plant'
 import ErrorPage              from './pages/ErrorPage'
 
 import './style.css'
-
-const globalStyles = css`
-  * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-`
 
 const router = createBrowserRouter([
    {
@@ -38,7 +29,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
    <React.StrictMode>
-      <Global styles={globalStyles} />
       <RouterProvider router={router}/>
    </React.StrictMode>
 )

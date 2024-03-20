@@ -10,6 +10,8 @@ import { Location }           from './pages/Location'
 import { SelectPlant, Plant } from './pages/Plant'
 import ErrorPage              from './pages/ErrorPage'
 
+import './style.css'
+
 const globalStyles = css`
   * {
     margin: 0;

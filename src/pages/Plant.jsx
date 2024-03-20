@@ -30,10 +30,21 @@ export function Plant() {
 
   // The more in depth plant info section
   return (
-    plant && (<>
-      <h1>Plant</h1>
-      <h2>{plant.common_name} | {plant.scientific_name}</h2>
-    </>)
+    plant && (
+    <div className="plant-container">
+      {console.log(plant)}
+      <h1>{plant.common_name}</h1>
+      <h2>{plant.scientific_name}</h2>
+      <img src={plant.default_image.original_url} alt={plant.common_name} />
+      <p>{plant.description}</p>
+      <div className="plant-details">
+        <h3>Details</h3>
+        <p><strong>Family: </strong>{plant.family}</p>
+        <p><strong>Edible Parts: </strong>{plant.edible_fruit && (<>fruit </>)}{plant.edible_leaf && (<>leaves </>)}</p>
+        <p><strong>Harvest Season: </strong>{plant.harvest_season}</p>
+      </div>
+    </div>
+    )
   )
 }
 

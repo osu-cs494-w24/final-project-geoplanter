@@ -1,14 +1,16 @@
 const ZIP_API = 'https://app.zipcodebase.com/api/v1/code/city?apikey='
-const ZIP_KEY = '9402b620-e4ff-11ee-8794-43f5238cc635'
+const ZIP_KEY = '46ecc670-e6e2-11ee-b8b6-2996d19825be'
+
+//const ZIP_KEY = '9402b620-e4ff-11ee-8794-43f5238cc635'
 
 const HARDINESS_DATABASE = 'https://phzmapi.org/'
 
 const PLANT_API = 'https://perenual.com/api/'
-const PLANT_KEY = 'sk-Wq5f65f89bc6f33d64785'
+//const PLANT_KEY = 'sk-Wq5f65f89bc6f33d64785'
 
 // 100 queries a day per a key
 //const PLANT_KEY = 'sk-x3bW65f85518a4a534779'
-//const PLANT_KEY = 'sk-jako65f7a34c6b5fd4769'
+const PLANT_KEY = 'sk-jako65f7a34c6b5fd4769'
 //const PLANT_KEY = 'sk-Wq5f65f89bc6f33d64785'
 
 /*

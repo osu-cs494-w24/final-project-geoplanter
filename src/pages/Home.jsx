@@ -5,8 +5,9 @@ export default function Home() {
 
   // The Home Screen
   return (
-    <>
-      <h1>Home</h1>
-    </>
+    <div className="home-container">
+      <h1>Welcome to Edible Plants Explorer</h1>
+      <p>Discover the edible plants that grow in your area.</p>
+    </div>
   )
 }

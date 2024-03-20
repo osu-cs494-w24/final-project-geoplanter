@@ -3,6 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 import SearchBar from './components/SearchBar'
 
+import './style.css'
+
 /*
    Displays all of the constant website components
 */
@@ -13,12 +15,14 @@ export default function App(props) {
    return (
       <>
          <header>
-            Header
+            GEOPLANTER
          </header>
          <nav>
             <ul>
                <li><NavLink to="/">Home</NavLink></li>
-               <li><NavLink to="/">LOGO</NavLink></li>
+               <li><NavLink to="/">
+                  <img src="/logo.png" alt="Logo" />
+               </NavLink></li>
                <li><NavLink to="/map">Map</NavLink></li>
             </ul>
          </nav>

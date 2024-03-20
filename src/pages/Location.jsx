@@ -4,6 +4,7 @@ import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { fetchZipcode, fetchHardiness, fetchPlants } from '../components/Fetchers'
 import { noPremium } from '../components/Filters'
 
+import '../style.css'
 /*
   Display when a location has been searched
 */
@@ -22,7 +23,7 @@ export function Location(props) {
     const fetchData = async () => {
       try {
         const result = await fetchZipcode(cityName, stateName)
-        setZipcode(result.results)
+        setZipcode(result.results[0])
       } catch (error) {
         setError('Error fetching zipcode data')
         console.error('Error fetching zipcode data:', error)
@@ -71,20 +72,23 @@ export function Location(props) {
   // This is the side bar for local edible plants
   return (
     <>
-      <h1>Location</h1>
-      {zipcode && hardiness && plants && (
-        <ul>
-          {console.log(plants)}
-          {plants.map(plant => (
-            <li key={plant.id}>
-              <NavLink to={"/" + cityName + "," + stateName + "/" + plant.common_name.replace(/\s/g, '')+plant.id}>
-                <h1>{plant.common_name}</h1>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      )}
-      <main>{props.children || <Outlet />}</main>
+      <div className="sidebar">
+        <h1>Location</h1>
+        {zipcode && hardiness && plants && (
+          <ul>
+            {plants.map(plant => (
+              <li key={plant.id}>
+                <NavLink to={"/" + cityName + "," + stateName + "/" + plant.common_name.replace(/\s/g, '') + plant.id}>
+                  <h1>{plant.common_name}</h1>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="content">
+        <main>{props.children || <Outlet />}</main>
+      </div>
     </>
   )
 }

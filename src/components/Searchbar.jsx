@@ -16,7 +16,7 @@ export default function SearchBar() {
 
   // Search Bar
   return (
-    <>
+    <div className="search-container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -32,6 +32,6 @@ export default function SearchBar() {
         />
         <button type="submit">Search</button>
       </form>
-    </>
+    </div>
   )
 }

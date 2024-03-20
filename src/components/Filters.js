@@ -4,7 +4,6 @@
 export function noPremium(data) {
    let cnt = 0
    for(let i = 0; i < data.length; i++) {
-      console.log(data[i].cycle.replace(/ .*/,''))
       if(data[i].cycle.replace(/ .*/,'') === "Upgrade") {
          cnt ++
       }
